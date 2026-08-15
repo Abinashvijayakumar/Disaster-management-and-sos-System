@@ -1,0 +1,76 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <DHT.h>
+#include <SIM800L.h>
+
+#define DHTPIN 4
+#define DHTTYPE DHT22
+#define WATER_LEVEL_PIN 34
+#define GAS_SENSOR_PIN 35
+
+class HydroSOSSystem {
+private:
+    DHT dht;
+    float temperature, humidity;
+    int waterLevel, gasLevel;
+    
+    void sendSMSAlert(String message) {
+        // Send SMS via SIM800L
+        SIM800L.sendSMS("+911234567890", message);
+    }
+    
+    bool checkEmergencyConditions() {
+        if (waterLevel > 80) return true;
+        if (temperature > 40) return true;
+        if (gasLevel > 500) return true;
+        return false;
+    }
+
+public:
+    HydroSOSSystem() : dht(DHTPIN, DHTTYPE) {}
+    
+    void initialize() {
+        dht.begin();
+        WiFi.begin("YourWiFi", "Password");
+        SIM800L.begin(9600);
+    }
+    
+    void collectSensorData() {
+        temperature = dht.readTemperature();
+        humidity = dht.readHumidity();
+        waterLevel = analogRead(WATER_LEVEL_PIN);
+        gasLevel = analogRead(GAS_SENSOR_PIN);
+    }
+    
+    void processData() {
+        if (checkEmergencyConditions()) {
+            String emergencyMsg = "ALERT: Water Level " + 
+                String(waterLevel) + 
+                "% | Temp " + 
+                String(temperature) + 
+                "°C | Gas " + 
+                String(gasLevel);
+            
+            sendSMSAlert(emergencyMsg);
+            uploadToCloud(emergencyMsg);
+        }
+    }
+    
+    void uploadToCloud(String data) {
+        HTTPClient http;
+        http.begin("https://your-cloud-endpoint.com/data");
+        http.POST(data);
+        http.end();
+    }
+};
+
+void setup() {
+    HydroSOSSystem floodGrid;
+    floodGrid.initialize();
+}
+
+void loop() {
+    floodGrid.collectSensorData();
+    floodGrid.processData();
+    delay(5000);  // 5-second interval
+}
