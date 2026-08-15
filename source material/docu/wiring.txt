@@ -1,0 +1,50 @@
+ Pin Connections for GuardianSense (ESP32)
+This table shows how to connect each sensor/module to the ESP32.
+
+Sensor/Module	ESP32 Pin	Notes
+Neo-6M GPS	TX → 16	Use HardwareSerial(1)
+RX → 17	
+BMP280	SCL → 22	I2C Communication
+SDA → 21	
+DHT11	Data → 4	Use pull-up resistor (10kΩ)
+MQ-7 (CO Sensor)	A0 → 34	Analog pin
+MQ-135 (Air Quality)	A0 → 35	Analog pin
+Raindrop Sensor	A0 → 32	Analog pin
+Ultrasonic Sensor (Water Level)	TRIG → 5	Digital Output
+ECHO → 18	Digital Input
+🛠 Wiring Guide
+1️⃣ Neo-6M GPS Module
+VCC → 3.3V or 5V
+GND → GND
+TX → ESP32 Pin 16
+RX → ESP32 Pin 17
+2️⃣ BMP280 (I2C Mode)
+VCC → 3.3V
+GND → GND
+SCL → ESP32 Pin 22
+SDA → ESP32 Pin 21
+3️⃣ DHT11 (Temperature & Humidity)
+VCC → 3.3V or 5V
+GND → GND
+Data → ESP32 Pin 4 (Use 10kΩ pull-up resistor on Data line)
+4️⃣ MQ-7 (Carbon Monoxide - CO)
+VCC → 5V
+GND → GND
+A0 (Analog Output) → ESP32 Pin 34
+5️⃣ MQ-135 (Air Quality Sensor)
+VCC → 5V
+GND → GND
+A0 (Analog Output) → ESP32 Pin 35
+6️⃣ Raindrop Sensor
+VCC → 5V
+GND → GND
+A0 (Analog Output) → ESP32 Pin 32
+7️⃣ Ultrasonic Sensor (Water Level)
+VCC → 5V
+GND → GND
+TRIG → ESP32 Pin 5
+ECHO → ESP32 Pin 18
+⚡ Power Considerations
+GPS & BMP280 can work on 3.3V or 5V
+MQ-7 & MQ-135 require 5V for proper operation
+Use a stable power source (ESP32's 5V pin or external power supply)

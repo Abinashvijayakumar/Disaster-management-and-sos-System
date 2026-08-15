@@ -1,0 +1,109 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
+    <!-- Grid Background -->
+    <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" stroke-width="0.5"/>
+        </pattern>
+    </defs>
+    <rect width="800" height="700" fill="url(#grid)" />
+
+    <!-- External Power Supply -->
+    <rect x="50" y="50" width="120" height="80" fill="white" stroke="black" stroke-width="2"/>
+    <text x="110" y="90" font-family="monospace" font-size="14" text-anchor="middle">External</text>
+    <text x="110" y="110" font-family="monospace" font-size="14" text-anchor="middle">Power Supply</text>
+    
+    <!-- Power rails -->
+    <line x1="170" y1="70" x2="750" y2="70" stroke="red" stroke-width="2"/>
+    <text x="180" y="65" font-family="monospace" font-size="12">VCC (5V)</text>
+    <line x1="170" y1="110" x2="750" y2="110" stroke="black" stroke-width="2"/>
+    <text x="180" y="105" font-family="monospace" font-size="12">GND</text>
+
+    <!-- ESP32 Module -->
+    <rect x="300" y="200" width="200" height="400" fill="white" stroke="black" stroke-width="2"/>
+    <text x="400" y="230" font-family="monospace" font-size="14" text-anchor="middle">ESP32</text>
+
+    <!-- Pin Labels for ESP32 -->
+    <text x="290" y="310" font-family="monospace" font-size="12" text-anchor="end">GPIO36 (VP)</text>
+    <text x="290" y="340" font-family="monospace" font-size="12" text-anchor="end">GPIO39 (VN)</text>
+    <text x="290" y="370" font-family="monospace" font-size="12" text-anchor="end">GPIO16 (RX2)</text>
+    <text x="290" y="400" font-family="monospace" font-size="12" text-anchor="end">GPIO17 (TX2)</text>
+    <text x="290" y="430" font-family="monospace" font-size="12" text-anchor="end">GPIO21 (SDA)</text>
+    <text x="290" y="460" font-family="monospace" font-size="12" text-anchor="end">GPIO22 (SCL)</text>
+    <text x="290" y="490" font-family="monospace" font-size="12" text-anchor="end">GPIO5 (Rain)</text>
+    <text x="290" y="520" font-family="monospace" font-size="12" text-anchor="end">GPIO4 (DHT)</text>
+    <text x="290" y="550" font-family="monospace" font-size="12" text-anchor="end">GPIO12 (Trig)</text>
+    <text x="290" y="580" font-family="monospace" font-size="12" text-anchor="end">GPIO14 (Echo)</text>
+
+    <!-- Original Sensors -->
+    <!-- MQ-7 -->
+    <rect x="100" y="150" width="80" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="140" y="175" font-family="monospace" font-size="12" text-anchor="middle">MQ-7</text>
+    <text x="140" y="190" font-family="monospace" font-size="10" text-anchor="middle">CO Sensor</text>
+    <line x1="140" y1="210" x2="140" y2="310" stroke="blue" stroke-width="2"/>
+    <line x1="140" y1="70" x2="140" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="120" y1="110" x2="120" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- MQ-138 -->
+    <rect x="200" y="150" width="80" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="240" y="175" font-family="monospace" font-size="12" text-anchor="middle">MQ-138</text>
+    <text x="240" y="190" font-family="monospace" font-size="10" text-anchor="middle">Air Quality</text>
+    <line x1="240" y1="210" x2="240" y2="340" stroke="green" stroke-width="2"/>
+    <line x1="240" y1="70" x2="240" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="220" y1="110" x2="220" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- GPS Module -->
+    <rect x="300" y="150" width="100" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="350" y="175" font-family="monospace" font-size="12" text-anchor="middle">NEO-6M GPS</text>
+    <text x="350" y="190" font-family="monospace" font-size="10" text-anchor="middle">9600 baud</text>
+    <line x1="320" y1="210" x2="320" y2="370" stroke="purple" stroke-width="2"/>
+    <line x1="380" y1="210" x2="380" y2="400" stroke="orange" stroke-width="2"/>
+    <line x1="350" y1="70" x2="350" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="330" y1="110" x2="330" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- BMP180 -->
+    <rect x="420" y="150" width="100" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="470" y="175" font-family="monospace" font-size="12" text-anchor="middle">BMP180</text>
+    <text x="470" y="190" font-family="monospace" font-size="10" text-anchor="middle">I2C 0x77</text>
+    <line x1="440" y1="210" x2="440" y2="430" stroke="brown" stroke-width="2"/>
+    <line x1="500" y1="210" x2="500" y2="460" stroke="gray" stroke-width="2"/>
+    <line x1="470" y1="70" x2="470" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="450" y1="110" x2="450" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- New Sensors -->
+    <!-- Rain Sensor -->
+    <rect x="540" y="150" width="80" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="580" y="175" font-family="monospace" font-size="12" text-anchor="middle">Rain</text>
+    <text x="580" y="190" font-family="monospace" font-size="10" text-anchor="middle">Detector</text>
+    <line x1="580" y1="210" x2="580" y2="490" stroke="#FF69B4" stroke-width="2"/>
+    <line x1="580" y1="70" x2="580" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="560" y1="110" x2="560" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- DHT22 -->
+    <rect x="640" y="150" width="80" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="680" y="175" font-family="monospace" font-size="12" text-anchor="middle">DHT22</text>
+    <text x="680" y="190" font-family="monospace" font-size="10" text-anchor="middle">Temp/Humid</text>
+    <line x1="680" y1="210" x2="680" y2="520" stroke="#800080" stroke-width="2"/>
+    <line x1="680" y1="70" x2="680" y2="150" stroke="red" stroke-width="2"/>
+    <line x1="660" y1="110" x2="660" y2="150" stroke="black" stroke-width="2"/>
+
+    <!-- HC-SR04 -->
+    <rect x="540" y="250" width="100" height="60" fill="white" stroke="black" stroke-width="2"/>
+    <text x="590" y="275" font-family="monospace" font-size="12" text-anchor="middle">HC-SR04</text>
+    <text x="590" y="290" font-family="monospace" font-size="10" text-anchor="middle">Ultrasonic</text>
+    <line x1="560" y1="310" x2="560" y2="550" stroke="#FF4500" stroke-width="2"/>
+    <line x1="620" y1="310" x2="620" y2="580" stroke="#FFD700" stroke-width="2"/>
+    <line x1="590" y1="70" x2="590" y2="250" stroke="red" stroke-width="2"/>
+    <line x1="570" y1="110" x2="570" y2="250" stroke="black" stroke-width="2"/>
+
+    <!-- Pin Labels -->
+    <text x="130" y="305" font-family="monospace" font-size="10">AO</text>
+    <text x="230" y="335" font-family="monospace" font-size="10">AO</text>
+    <text x="310" y="365" font-family="monospace" font-size="10">TX</text>
+    <text x="370" y="395" font-family="monospace" font-size="10">RX</text>
+    <text x="430" y="425" font-family="monospace" font-size="10">SDA</text>
+    <text x="490" y="455" font-family="monospace" font-size="10">SCL</text>
+    <text x="570" y="485" font-family="monospace" font-size="10">DO</text>
+    <text x="670" y="515" font-family="monospace" font-size="10">DATA</text>
+    <text x="550" y="545" font-family="monospace" font-size="10">TRIG</text>
+    <text x="610" y="575" font-family="monospace" font-size="10">ECHO</text>
+</svg>
